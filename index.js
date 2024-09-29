@@ -7,6 +7,10 @@ app.get('/', (req, res) =>{
     res.send('Hello World');
 });
 
+app.get('/about', (req, res) =>{
+    res.send('About Us');
+})
+
 // hhtp:..localhost:3000
 app.post('/', (req, res) => {
     res.send('POST - Hello World');
