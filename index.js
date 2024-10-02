@@ -7,12 +7,58 @@ app.get('/', (req, res) =>{
     res.send('Hello World');
 });
 
+app.get('/hello', (req, res)=>{
+    res.status(200)
+    res.send('<h1>Get - Hello World</h1>')
+})
+
+
 app.get('/about', (req, res) =>{
     res.send('About Us');
 })
 
-// hhtp:..localhost:3000
-app.post('/', (req, res) => {
+app.get('/contact', (req, res) =>{
+    res.send('Contact Us');
+})
+
+app.delete('/hello', (req, res)=>{
+    res.status(204)
+
+    res.send('<h1>Delete - Hello World</h1>')
+
+})
+
+app.put('/hello', (req, res)=>{
+    res.status(203)
+
+    res.send('<h1>Put - Hello World</h1>')
+
+})
+
+app.get('/student', (req, res) =>{
+    res.status(200)
+    const stud = {
+        name: 'John Doe',
+        age: 25,
+    }
+    res.json(stud);
+})
+
+//http://localhost:3000/employee?fnm=Harin&lnm=Reddy
+app.get('/employee', (req, res) =>{
+    console.log(req.query);
+    res.send(req.query);
+})
+
+app.get('/employee/:fname/:lnm/:city', (req, res) =>{
+    console.log(req.params);
+    const fname = req.params.fname;
+    const lnm = req.params.lnm;
+    const city = req.params.city;
+    res.send(`First Name: ${fname}, last Name: ${lnm}, City: ${city}`)
+}) 
+
+app.post('/hello', (req, res) => {
     res.send('POST - Hello World');
 })
 
